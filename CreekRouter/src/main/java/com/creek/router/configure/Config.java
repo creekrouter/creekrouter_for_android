@@ -16,8 +16,8 @@
 
 /*
  * CreekRouter
- * Author:lvxiaofei
- * Email:lvxiaofei6@gmail.com
+ * Author:LvXiaofei
+ * Email:creekrouter@163.com
  */
 
 package com.creek.router.configure;
@@ -104,7 +104,7 @@ public class Config {
             " */\n\n";
     public static final String AuthorInfo = "/*\n" +
             " * CreekRouter\n" +
-            " * Author:lvxiaofei\n" +
-            " * Email:lvxiaofei6@gmail.com\n" +
+            " * Author:LvXiaofei\n" +
+            " * Email:creekrouter@163.com\n" +
             " */\n\n";
 }

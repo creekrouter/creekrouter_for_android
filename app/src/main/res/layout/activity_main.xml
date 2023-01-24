@@ -16,49 +16,7 @@
         android:textColor="@color/black"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
-        android:text="demo for launch Activity"/>
-
-    <Button
-        android:id="@+id/module_a"
-        android:layout_width="match_parent"
-        android:layout_height="70dp"
-        android:layout_centerVertical="true"
-        android:textAllCaps="false"
-        android:layout_marginTop="20dp"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
-        android:text="Launch module-a Activity"/>
-
-    <Button
-        android:id="@+id/module_b"
-        android:layout_width="match_parent"
-        android:layout_height="70dp"
-        android:layout_centerVertical="true"
-        android:layout_marginTop="10dp"
-        android:textAllCaps="false"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
-        android:text="Launch module-b Activity"/>
+        android:text="CreekRouter source code branch"/>
 
 
-    <Button
-        android:id="@+id/module_c"
-        android:layout_width="match_parent"
-        android:layout_height="70dp"
-        android:layout_centerVertical="true"
-        android:layout_marginTop="10dp"
-        android:textAllCaps="false"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
-        android:text="Launch module-c Activity"/>
-    <Button
-        android:id="@+id/module_d"
-        android:layout_width="match_parent"
-        android:layout_height="70dp"
-        android:layout_centerVertical="true"
-        android:layout_marginTop="10dp"
-        android:textAllCaps="false"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
-        android:text="Launch module-d Activity"/>
 </LinearLayout>
