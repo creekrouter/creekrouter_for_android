@@ -5,21 +5,22 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".MainActivity">
+    tools:context=".ModuleActivity_C">
 
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="70dp"
+        android:layout_height="wrap_content"
+        android:minHeight="70dp"
         android:textStyle="bold"
         android:textSize="20dp"
         android:gravity="center"
-        android:textColor="@color/black"
+        android:textColor="#000"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
-        android:text="demo for launch Activity"/>
+        android:text="demo for plugin Activity use between local modules and remote plugin"/>
 
     <Button
-        android:id="@+id/module_a"
+        android:id="@+id/button_a"
         android:layout_width="match_parent"
         android:layout_height="70dp"
         android:layout_centerVertical="true"
@@ -27,10 +28,10 @@
         android:layout_marginTop="20dp"
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
-        android:text="Launch module-a Activity"/>
+        android:text="download apk file by http"/>
 
     <Button
-        android:id="@+id/module_b"
+        android:id="@+id/button_b"
         android:layout_width="match_parent"
         android:layout_height="70dp"
         android:layout_centerVertical="true"
@@ -38,11 +39,10 @@
         android:textAllCaps="false"
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
-        android:text="Launch module-b Activity"/>
-
+        android:text="load apk File from sdcard"/>
 
     <Button
-        android:id="@+id/module_c"
+        android:id="@+id/button_c"
         android:layout_width="match_parent"
         android:layout_height="70dp"
         android:layout_centerVertical="true"
@@ -50,9 +50,11 @@
         android:textAllCaps="false"
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
-        android:text="Launch module-c Activity"/>
+        android:text="run method from remote apk"/>
+
+
     <Button
-        android:id="@+id/module_d"
+        android:id="@+id/button_d"
         android:layout_width="match_parent"
         android:layout_height="70dp"
         android:layout_centerVertical="true"
@@ -60,5 +62,6 @@
         android:textAllCaps="false"
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
-        android:text="Launch module-d Activity"/>
+        android:text="clear apk Files"/>
+
 </LinearLayout>

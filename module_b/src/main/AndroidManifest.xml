@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.creek.module_b">
+
+    <application>
+        <activity
+            android:name=".ModuleActivity_B"
+            android:exported="false" />
+    </application>
+
+</manifest>

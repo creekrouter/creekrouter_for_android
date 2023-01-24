@@ -3,9 +3,15 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
+        maven {
+            url 'https://creekrouter.com/maven'
+        }
     }
 }
-rootProject.name = "creek-router"
+rootProject.name = "creek-router-demo"
 include ':app'
-include ':CreekRouter'
-
+include ':module_a'
+include ':module_b'
+include ':module_c'
+include ':module_d'
+include ':PluginHelper'

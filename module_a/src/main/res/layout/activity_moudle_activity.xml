@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".MainActivity">
+    tools:context=".ModuleActivity_A">
+
 
     <TextView
         android:layout_width="match_parent"
@@ -13,13 +14,13 @@
         android:textStyle="bold"
         android:textSize="20dp"
         android:gravity="center"
-        android:textColor="@color/black"
+        android:textColor="#000"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
-        android:text="demo for launch Activity"/>
+        android:text="demo for Method calls between different modules"/>
 
     <Button
-        android:id="@+id/module_a"
+        android:id="@+id/btn_a"
         android:layout_width="match_parent"
         android:layout_height="70dp"
         android:layout_centerVertical="true"
@@ -27,10 +28,10 @@
         android:layout_marginTop="20dp"
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
-        android:text="Launch module-a Activity"/>
+        android:text="say hi"/>
 
     <Button
-        android:id="@+id/module_b"
+        android:id="@+id/btn_b"
         android:layout_width="match_parent"
         android:layout_height="70dp"
         android:layout_centerVertical="true"
@@ -38,11 +39,11 @@
         android:textAllCaps="false"
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
-        android:text="Launch module-b Activity"/>
+        android:text="say hello world"/>
 
 
     <Button
-        android:id="@+id/module_c"
+        android:id="@+id/btn_c"
         android:layout_width="match_parent"
         android:layout_height="70dp"
         android:layout_centerVertical="true"
@@ -50,15 +51,6 @@
         android:textAllCaps="false"
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
-        android:text="Launch module-c Activity"/>
-    <Button
-        android:id="@+id/module_d"
-        android:layout_width="match_parent"
-        android:layout_height="70dp"
-        android:layout_centerVertical="true"
-        android:layout_marginTop="10dp"
-        android:textAllCaps="false"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
-        android:text="Launch module-d Activity"/>
+        android:text="say A B C"/>
+
 </LinearLayout>
