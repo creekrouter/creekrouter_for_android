@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <!--    根节点至少包含一个AppModule属性,属性值为项目的ApplicationModule名称-->
-<Router AppModule="app" defaultGroup="default">
+<Router AppModule="app" group="default">
     <Log dir="./app/build" />
     <Module name="module_b" aliasName="bbb" group="hello"/>
     <Module name="app" aliasName="Main" group="default"/>

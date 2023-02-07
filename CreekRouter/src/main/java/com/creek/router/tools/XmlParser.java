@@ -66,7 +66,7 @@ public class XmlParser {
 
     private void parseMainModule() {
         CreekXml.appModule = rootNode.getAttribute("AppModule");
-        String appDefaultGroup = rootNode.getAttribute("defaultGroup");
+        String appDefaultGroup = rootNode.getAttribute("group");
         if (appDefaultGroup == null || appDefaultGroup.length() == 0) {
             CreekXml.appDefaultGroup = Config.MODULE_DEFAULT_GROUP;
         } else {

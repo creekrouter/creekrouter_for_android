@@ -71,26 +71,29 @@ public final class CreekRouter {
         return create(service, null);
     }
 
-    /*
-    In this method, parameters must be basic data type.
-    otherwise, it cannot be worked.
-     */
     public static Object methodRun(String annotatePath, Object... parameters) {
         MethodExecutor executor = RoutingTableManager.getInstance().proxy(annotatePath);
         return executor == null ? null : executor.execute(null, new SimpleChecker(annotatePath), parameters);
     }
 
     public static Object methodExe(String annotatePath, String groupTo, Object... parameters) {
-        return functionRun(annotatePath, null, groupTo, parameters);
+        return methodInvoke(annotatePath, null, groupTo, parameters);
     }
 
-    public static Object functionRun(String annotatePath, Object instance, String groupTo, Object... parameters) {
+    public static Object methodCall(String annotatePath, Object instance, Object... parameters) {
+        return methodInvoke(annotatePath, instance, null, parameters);
+    }
+
+    public static Object methodInvoke(String annotatePath, Object instance, String groupTo, Object... parameters) {
+        if (groupTo == null || groupTo.length() == 0) {
+            return methodCarryout(annotatePath, instance, null, parameters);
+        }
         Map<Filters, String> filterMapTo = new HashMap<>();
         filterMapTo.put(Filters.Group, groupTo);
-        return functionExe(annotatePath, instance, filterMapTo, parameters);
+        return methodCarryout(annotatePath, instance, filterMapTo, parameters);
     }
 
-    public static Object functionExe(String annotatePath, Object instance, Map<Filters, String> filterMapTo, Object... args) {
+    public static Object methodCarryout(String annotatePath, Object instance, Map<Filters, String> filterMapTo, Object... args) {
         MethodExecutor executor = null;
         if (filterMapTo == null) {
             executor = RoutingTableManager.getInstance().proxy(annotatePath);
@@ -100,7 +103,6 @@ public final class CreekRouter {
             String group = filterMapTo.get(Filters.Group);
             executor = RoutingTableManager.getInstance().proxy(annotatePath, moduleName, moduleAliasName, group);
         }
-
         return executor == null ? null : executor.execute(instance, new SimpleChecker(annotatePath), args);
     }
 
