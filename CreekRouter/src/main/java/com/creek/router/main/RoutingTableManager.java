@@ -145,6 +145,18 @@ public class RoutingTableManager {
         return null;
     }
 
+    public List<MethodExecutor> proxyList(String annotationPath, String... filters) {
+        List<MethodExecutor> list = new ArrayList<>();
+        for (RoutingTable moduleTable : getTableListByFilters(filters)) {
+            MethodExecutor methodProxy = moduleTable.methodProxy().proxy(annotationPath);
+            if (methodProxy == null) {
+                continue;
+            }
+            list.add(methodProxy);
+        }
+        return list;
+    }
+
     public Class<?> getClazz(String annotationPath, String... filters) {
         for (RoutingTable moduleTable : getTableListByFilters(filters)) {
             Class<?> clazz = moduleTable.routerClazz().getClazz(annotationPath);

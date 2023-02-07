@@ -30,7 +30,9 @@ import com.creek.router.main.RoutingTableManager;
 import com.creek.router.protocol.DataBeanCreator;
 import com.creek.router.protocol.MethodExecutor;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public final class CreekRouter {
@@ -104,6 +106,29 @@ public final class CreekRouter {
             executor = RoutingTableManager.getInstance().proxy(annotatePath, moduleName, moduleAliasName, group);
         }
         return executor == null ? null : executor.execute(instance, new SimpleChecker(annotatePath), args);
+    }
+
+    public static List functionRun(String annotatePath, Object... parameters) {
+        return functionCall(annotatePath, null, parameters);
+    }
+
+    public static List functionCall(String annotatePath, String groupTo, Object... parameters) {
+        Map<Filters, String> filterMapTo = new HashMap<>();
+        filterMapTo.put(Filters.Group, groupTo);
+        return functionExe(annotatePath, filterMapTo, parameters);
+    }
+
+    public static List functionExe(String annotatePath, Map<Filters, String> filterMapTo, Object... parameters) {
+        List results = new ArrayList();
+        String moduleName = filterMapTo.get(Filters.ModuleName);
+        String moduleAliasName = filterMapTo.get(Filters.ModuleAliasName);
+        String group = filterMapTo.get(Filters.Group);
+        List<MethodExecutor> executorList = RoutingTableManager.getInstance().proxyList(annotatePath, moduleName, moduleAliasName, group);
+        for (MethodExecutor executor : executorList) {
+            Object obj = executor == null ? null : executor.execute(null, new SimpleChecker(annotatePath), parameters);
+            results.add(obj);
+        }
+        return results;
     }
 
 
