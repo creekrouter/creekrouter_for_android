@@ -84,29 +84,34 @@ public class RoutingTableManager {
         String moduleAliasName = filters.length > 1 ? filters[1] : null;
         String group = filters.length > 2 ? filters[2] : null;
 
-        List<RoutingTable> tableList = null;
-        if ((moduleName == null || moduleName.length() == 0) && (moduleAliasName == null || moduleAliasName.length() == 0)) {
-            if (group == null) {
-                return this.mTable;
-            } else {
-                tableList = new ArrayList<>();
-                for (RoutingTable table : this.mTable) {
-                    if (table.getGroup().equals(group)) {
+        boolean hasName = (moduleName != null && moduleName.length() > 0) || (moduleAliasName != null && moduleAliasName.length() > 0);
+        boolean hasGroup = (group != null && group.length() > 0);
+
+        List<RoutingTable> tableList = new ArrayList<>();
+        if (hasGroup) {
+            for (RoutingTable table : this.mTable) {
+                if (table.getGroup().equals(group)) {
+                    if (hasName) {
+                        if (table.getModuleName().equals(moduleName) || table.getModuleAliasName().equals(moduleAliasName)) {
+                            tableList.add(table);
+                        }
+                    } else {
                         tableList.add(table);
                     }
                 }
-                return tableList;
             }
         } else {
-            for (RoutingTable table : this.mTable) {
-                if (table.getModuleName().equals(moduleName) || table.getModuleAliasName().equals(moduleAliasName)) {
-                    tableList = new ArrayList<>();
-                    tableList.add(table);
-                    return tableList;
+            if (hasName) {
+                for (RoutingTable table : this.mTable) {
+                    if (table.getModuleName().equals(moduleName) || table.getModuleAliasName().equals(moduleAliasName)) {
+                        tableList.add(table);
+                    }
                 }
+            } else {
+                return this.mTable;
             }
         }
-        return new ArrayList<>();
+        return tableList;
     }
 
     public DataBeanCreator beanGenerate(String pkgName, String... filters) {
