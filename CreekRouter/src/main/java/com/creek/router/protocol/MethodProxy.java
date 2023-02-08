@@ -22,6 +22,8 @@
 
 package com.creek.router.protocol;
 
+import java.util.List;
+
 public interface MethodProxy {
-    MethodExecutor proxy(String annotationPath);
+    List<MethodExecutor> proxy(String annotationPath,boolean widelyInvoke);
 }

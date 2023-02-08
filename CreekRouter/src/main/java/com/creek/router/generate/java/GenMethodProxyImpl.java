@@ -50,6 +50,8 @@ public class GenMethodProxyImpl {
         StringBuilder sb = new StringBuilder();
         sb.append("package " + Config.PACKAGE + ";\n\n");
         sb.append("import " + Config.PACKAGE_PROTOCOL + ".*;\n\n");
+        sb.append("import java.util.ArrayList;\n");
+        sb.append("import java.util.List;\n\n");
 
         return sb.toString();
     }
@@ -69,13 +71,14 @@ public class GenMethodProxyImpl {
     private static String method_head() {
         StringBuilder sb = new StringBuilder();
         sb.append("    @Override\n");
-        sb.append("    public " + Config.CLAZZ_NAME_METHOD_EXECUTOR + " proxy(String annotationPath) {\n");
+        sb.append("    public List<" + Config.CLAZZ_NAME_METHOD_EXECUTOR + "> proxy(String annotationPath, boolean widelyInvoke) {\n");
+        sb.append("        List<MethodExecutor> list = new ArrayList<>();\n\n");
         return sb.toString();
     }
 
     private static String method_tail() {
         StringBuilder sb = new StringBuilder();
-        sb.append("        return null;\n");
+        sb.append("        return list;\n");
         sb.append("    }\n\n");
         return sb.toString();
     }
@@ -88,7 +91,8 @@ public class GenMethodProxyImpl {
         for (String clazz : methodsImplProxy.keySet()) {
             RouterBean routerBean = methodsImplProxy.get(clazz);
             sb.append("        if (\"" + routerBean.path + "\".equals(annotationPath)) {\n");
-            sb.append("            return new " + clazz + "();\n");
+            sb.append("            list.add(new " + clazz + "());\n");
+            sb.append("            if (!widelyInvoke) {return list;}\n");
             sb.append("        }\n");
         }
         return sb.toString();

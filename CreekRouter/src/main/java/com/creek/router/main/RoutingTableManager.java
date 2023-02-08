@@ -136,11 +136,11 @@ public class RoutingTableManager {
 
     public MethodExecutor proxy(String annotationPath, String... filters) {
         for (RoutingTable moduleTable : getTableListByFilters(filters)) {
-            MethodExecutor methodProxy = moduleTable.methodProxy().proxy(annotationPath);
-            if (methodProxy == null) {
+            List<MethodExecutor> list = moduleTable.methodProxy().proxy(annotationPath, false);
+            if (list.size() == 0) {
                 continue;
             }
-            return methodProxy;
+            return list.get(0);
         }
         return null;
     }
@@ -148,11 +148,7 @@ public class RoutingTableManager {
     public List<MethodExecutor> proxyList(String annotationPath, String... filters) {
         List<MethodExecutor> list = new ArrayList<>();
         for (RoutingTable moduleTable : getTableListByFilters(filters)) {
-            MethodExecutor methodProxy = moduleTable.methodProxy().proxy(annotationPath);
-            if (methodProxy == null) {
-                continue;
-            }
-            list.add(methodProxy);
+            list.addAll(moduleTable.methodProxy().proxy(annotationPath, true));
         }
         return list;
     }
