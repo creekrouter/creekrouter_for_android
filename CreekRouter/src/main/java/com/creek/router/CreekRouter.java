@@ -73,29 +73,29 @@ public final class CreekRouter {
         return create(service, null);
     }
 
-    public static Object methodRun(String annotatePath, Object... parameters) {
+    public static <T> T methodRun(String annotatePath, Object... parameters) {
         MethodExecutor executor = RoutingTableManager.getInstance().proxy(annotatePath);
-        return executor == null ? null : executor.execute(null, new SimpleChecker(annotatePath), parameters);
+        return executor == null ? null : (T) executor.execute(null, new SimpleChecker(annotatePath), parameters);
     }
 
-    public static Object methodExe(String annotatePath, String groupTo, Object... parameters) {
+    public static <T> T methodExe(String annotatePath, String groupTo, Object... parameters) {
         return methodInvoke(annotatePath, null, groupTo, parameters);
     }
 
-    public static Object methodCall(String annotatePath, Object instance, Object... parameters) {
+    public static <T> T methodCall(String annotatePath, Object instance, Object... parameters) {
         return methodInvoke(annotatePath, instance, null, parameters);
     }
 
-    public static Object methodInvoke(String annotatePath, Object instance, String groupTo, Object... parameters) {
+    public static <T> T methodInvoke(String annotatePath, Object instance, String groupTo, Object... parameters) {
         if (groupTo == null || groupTo.length() == 0) {
-            return methodCarryout(annotatePath, instance, null, parameters);
+            return (T) methodCarryout(annotatePath, instance, null, parameters);
         }
         Map<Filters, String> filterMapTo = new HashMap<>();
         filterMapTo.put(Filters.Group, groupTo);
-        return methodCarryout(annotatePath, instance, filterMapTo, parameters);
+        return (T) methodCarryout(annotatePath, instance, filterMapTo, parameters);
     }
 
-    public static Object methodCarryout(String annotatePath, Object instance, Map<Filters, String> filterMapTo, Object... args) {
+    public static <T> T methodCarryout(String annotatePath, Object instance, Map<Filters, String> filterMapTo, Object... args) {
         MethodExecutor executor = null;
         if (filterMapTo == null) {
             executor = RoutingTableManager.getInstance().proxy(annotatePath);
@@ -105,28 +105,28 @@ public final class CreekRouter {
             String group = filterMapTo.get(Filters.Group);
             executor = RoutingTableManager.getInstance().proxy(annotatePath, moduleName, moduleAliasName, group);
         }
-        return executor == null ? null : executor.execute(instance, new SimpleChecker(annotatePath), args);
+        return executor == null ? null : (T) executor.execute(instance, new SimpleChecker(annotatePath), args);
     }
 
-    public static List functionRun(String annotatePath, Object... parameters) {
+    public static <T> List<T> functionRun(String annotatePath, Object... parameters) {
         return functionCall(annotatePath, null, parameters);
     }
 
-    public static List functionCall(String annotatePath, String groupTo, Object... parameters) {
+    public static <T> List<T> functionCall(String annotatePath, String groupTo, Object... parameters) {
         Map<Filters, String> filterMapTo = new HashMap<>();
         filterMapTo.put(Filters.Group, groupTo);
         return functionExe(annotatePath, filterMapTo, parameters);
     }
 
-    public static List functionExe(String annotatePath, Map<Filters, String> filterMapTo, Object... parameters) {
-        List results = new ArrayList();
+    public static <T> List<T> functionExe(String annotatePath, Map<Filters, String> filterMapTo, Object... parameters) {
+        List<T> results = new ArrayList();
         String moduleName = filterMapTo.get(Filters.ModuleName);
         String moduleAliasName = filterMapTo.get(Filters.ModuleAliasName);
         String group = filterMapTo.get(Filters.Group);
         List<MethodExecutor> executorList = RoutingTableManager.getInstance().proxyList(annotatePath, moduleName, moduleAliasName, group);
         for (MethodExecutor executor : executorList) {
             Object obj = executor == null ? null : executor.execute(null, new SimpleChecker(annotatePath), parameters);
-            results.add(obj);
+            results.add((T) obj);
         }
         return results;
     }
@@ -147,13 +147,13 @@ public final class CreekRouter {
         }
     }
 
-    public static Object getBean(String annotateBeanPath) {
+    public static <T> T getBean(String annotateBeanPath) {
         return getBean(annotateBeanPath, null);
     }
 
-    public static Object getBean(String annotateBeanPath, Map<Filters, String> filterMap) {
+    public static <T> T getBean(String annotateBeanPath, Map<Filters, String> filterMap) {
         DataBeanCreator creator = beanCreator(annotateBeanPath, filterMap);
-        return creator == null ? null : creator.createInstance();
+        return creator == null ? null : (T) creator.createInstance();
     }
 
     public static DataBeanCreator beanCreator(String annotateBeanPath) {
