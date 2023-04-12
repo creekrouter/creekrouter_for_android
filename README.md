@@ -34,6 +34,7 @@ gradle依赖配置：
 ```
 
 # 三、组件化基本使用
+## 用法1
 假设A.class和B.class位于不同的Module当中。     
 其中，A.class
 ```java
@@ -59,5 +60,6 @@ B.class中调用A.class的startActivity方法：
 boolean result = CreekRouter.methodRun("start_activity", "hello world!");
 
 ```
+## 用法2
 
 # 四、demo示例
