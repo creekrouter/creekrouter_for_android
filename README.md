@@ -67,5 +67,21 @@ public class B {
 }
 
 ```
+也可以这样调用：
+```java
+
+public interface TestInterface {
+    @CreekMethod(path = "start_activity")
+    boolean launch(Context context, String param);
+}
+
+public class B {
+    public boolean test(Context context, String param) {
+        TestInterface test = CreekRouter.create(TestInterface.class);
+        return test.launch(context, param);
+    }
+}
+
+```
 
 # 四、demo示例
