@@ -14,9 +14,9 @@
 <!--    根节点至少包含一个AppModule属性,属性值为项目的Application Module名称-->
 <!--    group为分组，可以不写。-->
 <!--    Log标签、Module标签 选填-->
-<Router AppModule="mail" group="mail">
-    <Log dir="./mail/build" />
-    <Module name="mail" aliasName="MailCore" />
+<Router AppModule="app" group="main">
+    <Log dir="./app/build" />
+    <Module name="app" aliasName="app_module" />
 </Router>
 
 ```
