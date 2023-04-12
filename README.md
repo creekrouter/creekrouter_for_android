@@ -1,9 +1,9 @@
 # creekrouter_for_android
 # 一、简介
 用于解决Android组件化、插件化问题。一套方案应对组件化、插件化两种场景。     
-该代码仓库中，SourceCode分支为框架源码。
-组件化代码示例：切换本仓库分支为Demo分支。
-插件化代码示例：<a href="https://github.com/creekrouter/demo_for_creek_router" >CreekRouter插件化</a>
+该代码仓库中，SourceCode分支为框架源码。     
+组件化代码示例：切换本仓库分支为Demo分支。     
+插件化代码示例：<a href="https://github.com/creekrouter/demo_for_creek_router" >CreekRouter插件化</a>     
 
 # 二、基本配置
 1. 配置文件。
