@@ -34,6 +34,25 @@ gradle依赖配置：
 ```
 
 # 三、组件化基本使用
+假设A.class和B.class位于不同的Module当中。
+其中，A.class
+```java
+import android.content.Context;
+import android.content.Intent;
+import com.creek.router.annotation.CreekMethod;
 
+public class A {
+    @CreekMethod(path = "start_activity")
+    public boolean startActivity(Context context, String param) {
+        if (context == null || param == null || param.length() == 0) {
+            return false;
+        }
+        Intent intent = new Intent(context, MainActivity.class);
+        intent.putExtra("param", param);
+        context.startActivity(intent);
+        return true;
+    }
+}
+```
 
 # 四、demo示例
