@@ -34,7 +34,7 @@ gradle依赖配置：
 ```
 
 # 三、组件化基本使用
-假设A.class和B.class位于不同的Module当中。
+假设A.class和B.class位于不同的Module当中。     
 其中，A.class
 ```java
 import android.content.Context;
@@ -53,6 +53,11 @@ public class A {
         return true;
     }
 }
+```
+B.class中调用A.class的startActivity方法：
+```java
+boolean result = CreekRouter.methodRun("start_activity", "hello world!");
+
 ```
 
 # 四、demo示例
