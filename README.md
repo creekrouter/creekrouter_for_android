@@ -19,12 +19,12 @@
 ```
 2. gradle配置。
 ```text
-maven地址配置：
+- maven地址配置：
 maven {
     url 'https://creekrouter.com/maven'
 }
 
-gradle依赖配置：
+- gradle依赖配置：
 implementation 'com.creek.router:creekrouter:1.3.0'
 annotationProcessor 'com.creek.router:creekrouter:1.3.0'
 
