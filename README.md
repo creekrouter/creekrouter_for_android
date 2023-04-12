@@ -19,7 +19,7 @@
 ```
 2. gradle配置。
 ```text
-- maven地址配置：
+-  maven地址配置：
 maven {
     url 'https://creekrouter.com/maven'
 }
