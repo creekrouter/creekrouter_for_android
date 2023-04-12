@@ -4,6 +4,19 @@
 
 # 基本配置
 1. 配置文件。
+```text
+项目根目录下添加一个配置文件，文件名为：CreekRouter.xml
+内容如下：
+<?xml version="1.0" encoding="UTF-8"?>
+<!--    根节点至少包含一个AppModule属性,属性值为项目的Application Module名称-->
+<!--    group为分组，可以不写。-->
+<!--    Log标签、Module标签 选填-->
+<Router AppModule="mail" group="mail">
+    <Log dir="./mail/build" />
+    <Module name="mail" aliasName="MailCore" />
+</Router>
+
+```
 2. gradle配置。
 
 # 基本使用
