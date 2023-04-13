@@ -83,4 +83,5 @@ public class B {
 }
 
 ```
-
+# 四、插件化
+<a href="https://creekrouter.com/files/plugin.mp4">插件化演示视频:2MB Apk加载20MB插件apk，插件apk也可独立运行</a>
