@@ -31,9 +31,8 @@ dependencies {
 
     implementation project(path: ':module_a')
     implementation project(path: ':module_b')
-    implementation project(path: ':PluginHelper')
 
 
-    implementation 'com.creek.router:creekrouter:1.0.0'
-    annotationProcessor 'com.creek.router:creekrouter:1.0.0'
+    implementation 'com.creek.router:creekrouter:1.3.0'
+    annotationProcessor 'com.creek.router:creekrouter:1.3.0'
 }

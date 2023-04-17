@@ -16,51 +16,7 @@
         android:textColor="#000"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
-        android:text="demo for Method calls between local modules and remote jar"/>
+        android:text="Github Address:https://github.com/creekrouter/creekrouter_for_android"/>
 
-    <Button
-        android:id="@+id/button_1"
-        android:layout_width="match_parent"
-        android:layout_height="70dp"
-        android:layout_centerVertical="true"
-        android:textAllCaps="false"
-        android:layout_marginTop="20dp"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
-        android:text="download jar by http"/>
-
-    <Button
-        android:id="@+id/button_2"
-        android:layout_width="match_parent"
-        android:layout_height="70dp"
-        android:layout_centerVertical="true"
-        android:layout_marginTop="10dp"
-        android:textAllCaps="false"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
-        android:text="load Jar File from sdcard"/>
-
-    <Button
-        android:id="@+id/button_3"
-        android:layout_width="match_parent"
-        android:layout_height="70dp"
-        android:layout_centerVertical="true"
-        android:layout_marginTop="10dp"
-        android:textAllCaps="false"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
-        android:text="run method from remote jar"/>
-
-
-    <Button
-        android:id="@+id/button_4"
-        android:layout_width="match_parent"
-        android:layout_height="70dp"
-        android:layout_centerVertical="true"
-        android:layout_marginTop="10dp"
-        android:textAllCaps="false"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
-        android:text="clear Jar Files"/>
 
 </LinearLayout>

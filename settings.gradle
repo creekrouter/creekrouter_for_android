@@ -12,6 +12,4 @@ rootProject.name = "creek-router-demo"
 include ':app'
 include ':module_a'
 include ':module_b'
-include ':module_c'
-include ':module_d'
-include ':PluginHelper'
+

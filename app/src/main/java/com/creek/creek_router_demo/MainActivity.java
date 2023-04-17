@@ -3,7 +3,6 @@ package com.creek.creek_router_demo;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -12,7 +11,8 @@ import com.creek.router.CreekRouter;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button btn_a,btn_b,btn_c,btn_d;
+    Button btn_a, btn_b;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -20,8 +20,6 @@ public class MainActivity extends AppCompatActivity {
 
         btn_a = findViewById(R.id.module_a);
         btn_b = findViewById(R.id.module_b);
-        btn_c = findViewById(R.id.module_c);
-        btn_d = findViewById(R.id.module_d);
 
 
         btn_a.setOnClickListener(new View.OnClickListener() {
@@ -42,23 +40,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        btn_c.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Class<?> clazz = CreekRouter.getClazz("module_c_ModuleActivity_C");
-                Intent intent = new Intent(MainActivity.this, clazz);
-                startActivity(intent);
-            }
-        });
-
-        btn_d.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Class<?> clazz = CreekRouter.getClazz("module_d_ModuleActivity_D");
-                Intent intent = new Intent(MainActivity.this, clazz);
-                startActivity(intent);
-            }
-        });
     }
 
 }
