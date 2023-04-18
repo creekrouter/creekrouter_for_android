@@ -42,6 +42,7 @@ import android.content.Intent;
 import com.creek.router.annotation.CreekMethod;
 
 public class A {
+    // 每一个被调用的方法需要添加注解，注解path唯一。
     @CreekMethod(path = "start_activity")
     public boolean startActivity(Context context, String param) {
         if (context == null || param == null || param.length() == 0) {
@@ -61,6 +62,7 @@ import com.creek.router.CreekRouter;
 
 public class B {
     public boolean test(Context context, String param) {
+        //通过注解字符串找到被调用的方法。
         boolean result = CreekRouter.methodRun("start_activity", "hello world!");
         return result;
     }
@@ -71,6 +73,7 @@ public class B {
 ```java
 
 public interface TestInterface {
+    //通过注解值，与被调用的方法关联起来
     @CreekMethod(path = "start_activity")
     boolean launch(Context context, String param);
 }
