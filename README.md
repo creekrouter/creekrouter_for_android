@@ -87,5 +87,5 @@ public class B {
 
 ```
 # 四、插件化
-<a href="https://creekrouter.com/files/plugin.mp4">插件化演示视频:2MB Apk加载20MB插件apk，插件apk也可独立运行</a>     
-插件化代码示例：<a href="https://github.com/creekrouter/demo_for_creek_router" >插件化基础包代码</a>、<a href="https://github.com/creekrouter/CreekEmail" >插件化包代码</a>
+<a href="https://creekrouter.com/files/plugin.mp4">插件化演示视频</a>2MB 宿主Apk加载20MB插件apk,插件是完整的imap邮箱业务apk，也可独立运行     
+插件化代码示例：<a href="https://github.com/creekrouter/demo_for_creek_router" >宿主代码</a>、<a href="https://github.com/creekrouter/CreekEmail" >插件代码</a>
